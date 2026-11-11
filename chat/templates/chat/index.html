@@ -1,0 +1,46 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BeyondConnect Assistant</title>
+  <link rel="stylesheet" href="{% static 'chat/style.css' %}">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <span class="logo">B</span>
+        <div>
+          <h1>BeyondConnect</h1>
+          <p>Your shopping assistant</p>
+        </div>
+      </div>
+      <button id="newChat" class="ghost" type="button">New chat</button>
+    </header>
+
+    <main id="messages" class="messages" aria-live="polite">
+      <section id="welcome" class="welcome">
+        <div class="logo big">B</div>
+        <h2>Hi, I'm BeyondConnect 👋</h2>
+        <p>Ask me about light bulbs, chairs, tables, ACs, fridges, washing machines, bicycles and more.</p>
+        <div class="chips">
+          <button type="button" class="chip">Show me your best deals</button>
+          <button type="button" class="chip">I need a washing machine</button>
+          <button type="button" class="chip">Recommend a chandelier under ₦100,000</button>
+          <button type="button" class="chip">How do I cancel an order?</button>
+        </div>
+      </section>
+    </main>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" rows="1" maxlength="1000" placeholder="Message BeyondConnect…" aria-label="Message"></textarea>
+      <button id="send" type="submit" aria-label="Send">➤</button>
+    </form>
+    <p class="note">BeyondConnect can make mistakes. Confirm prices and availability on the product page.</p>
+  </div>
+
+  <script id="cfg" data-chat-url="{% url 'chat:api_chat' %}"></script>
+  <script src="{% static 'chat/app.js' %}"></script>
+</body>
+</html>
